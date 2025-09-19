@@ -80,7 +80,7 @@ try:
             print(" Klik selesai. Screenshot disimpan ke 'after_click.png'.")
             print(" URL sekarang:", driver.current_url)
 
-            # Menunggu tombol konfirmasi
+            # tunggu tombol confirm
             konfirmasi_button = WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.CLASS_NAME, "confirm"))
             )
@@ -95,12 +95,12 @@ try:
 
             print(" Harap cek manual apakah absensi benar-benar tercatat.")
 
-            # ✅ NOTIFIKASI hanya muncul jika absen dan konfirmasi sukses
+            # notif biar keren sikit
             jam = now.strftime("%H:%M")
-            os.system(f'notify-send "✅ Absensi Berhasil" "Jam {jam}, cihuy bot telah melakukan absensi ya boss."')
+            os.system(f'notify-send "Absensi Berhasil " "Jam {jam}, cihuy bot telah melakukan absensi ya boss."')
 
         else:
-            print("ℹ️ Tidak ada tombol absen yang bisa diklik. Mungkin tidak ada jadwal.")
+            print(" Tidak ada tombol absen yang bisa diklik. Mungkin tidak ada jadwal.")
 
 except Exception as e:
     print(" Terjadi error:", e)
