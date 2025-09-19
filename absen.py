@@ -15,7 +15,7 @@ PASSWORD = os.getenv("PASSWORD")
 
 
 options = Options()
-options.add_argument("--headless") 
+# options.add_argument("--headless") 
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
@@ -31,7 +31,7 @@ try:
         driver.get("https://simkuliah.usk.ac.id/")
         wait = WebDriverWait(driver, 10)
 
-        # Login
+
         wait.until(EC.presence_of_element_located((By.NAME, "username"))).send_keys(USERNAME)
         driver.find_element(By.NAME, "password").send_keys(PASSWORD)
         wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[type="submit"]'))).click()
@@ -45,22 +45,62 @@ try:
             driver.save_screenshot("login_failed.png")
             driver.quit()
             exit()
-
         
         driver.get("https://simkuliah.usk.ac.id/index.php/absensi")
         time.sleep(2)
 
         
-        print("✅ Berhasil mengunjungi halaman absensi.")
-        print("   Sistem baru sepertinya otomatis mencatat kehadiran.")
-        print("   Harap cek manual di LMS untuk memastikan.")
-        
-        driver.save_screenshot("absen_sukses.png")
-        print("   Screenshot disimpan sebagai 'absen_sukses.png'.")
+        absen_button = None
+        try:
+            # Cari tombol berdasarkan ID yang sudah ditemukan
+            absen_button = WebDriverWait(driver, 5).until(
+                EC.element_to_be_clickable((By.ID, "konfirmasi-kehadiran"))
+            )
+        except:
+            print(" ID 'konfirmasi-kehadiran' tidak ditemukan. Mencoba alternatif...")
+            buttons = driver.find_elements(By.TAG_NAME, "button")
+            for btn in buttons:
+                text = btn.text.lower()
+                html = btn.get_attribute("innerHTML").lower()
+                if "absen" in text or "konfirmasi" in html:
+                    absen_button = btn
+                    break
 
-        
-        jam = now.strftime("%H:%M")
-        os.system(f'notify-send "✅ Absensi Berhasil" "Jam {jam}, bot telah mengunjungi halaman absensi."')
+# ... (semua bagian sebelumnya tidak berubah)
+
+        if absen_button:
+            print(" HTML tombol absen yang ditemukan:")
+            print(absen_button.get_attribute("outerHTML"))
+            print(" Menekan tombol absen...")
+            driver.execute_script("arguments[0].click();", absen_button)
+
+            time.sleep(2)
+
+            driver.save_screenshot("after_click.png")
+            print(" Klik selesai. Screenshot disimpan ke 'after_click.png'.")
+            print(" URL sekarang:", driver.current_url)
+
+            # Menunggu tombol konfirmasi
+            konfirmasi_button = WebDriverWait(driver, 10).until(
+                EC.element_to_be_clickable((By.CLASS_NAME, "confirm"))
+            )
+            print("⏳ Menekan tombol konfirmasi...")
+            driver.execute_script("arguments[0].click();", konfirmasi_button)
+
+            time.sleep(2)
+
+            driver.save_screenshot("after_konfirmasi_click.png")
+            print(" Klik konfirmasi selesai. Screenshot disimpan ke 'after_konfirmasi_click.png'.")
+            print(" URL sekarang:", driver.current_url)
+
+            print(" Harap cek manual apakah absensi benar-benar tercatat.")
+
+            # ✅ NOTIFIKASI hanya muncul jika absen dan konfirmasi sukses
+            jam = now.strftime("%H:%M")
+            os.system(f'notify-send "✅ Absensi Berhasil" "Jam {jam}, cihuy bot telah melakukan absensi ya boss."')
+
+        else:
+            print("ℹ️ Tidak ada tombol absen yang bisa diklik. Mungkin tidak ada jadwal.")
 
 except Exception as e:
     print(" Terjadi error:", e)
