@@ -65,7 +65,7 @@ try:
             exit()
 
         # Arahkan ke halaman absen
-        driver.get("https://simkuliah.usk.ac.id/absensi")
+        driver.get("https://simkuliah.usk.ac.id/index.php/absensi")
         time.sleep(2)
 
         absen_button = None
