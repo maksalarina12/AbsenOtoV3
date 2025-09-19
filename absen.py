@@ -31,7 +31,7 @@ PASSWORD = os.getenv("PASSWORD")
 
 # --- Konfigurasi Selenium ---
 options = Options()
-# options.add_argument("--headless") # Aktifkan untuk mode headless
+options.add_argument("--headless") # Aktifkan untuk mode headless
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 # Menambahkan user-agent untuk menghindari deteksi bot
