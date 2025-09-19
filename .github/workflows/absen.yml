@@ -1,0 +1,29 @@
+name : Absensi Otomatis
+
+on:
+  schedule:
+    - cron: '0 1-13 * * 1-5'
+  workflow_dispatch:
+jobs:
+  run-absen:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 1. Ambil kode dari repository
+        uses: actions/checkout@v4
+
+      - name: 2. Setup Chrome
+        uses: browser-actions/setup-chrome@latest
+
+      - name: 3. Siapkan lingkungan Python
+        uses: actions/setup-python@v5
+        with:
+          python-versionn: '3.12'
+          
+      - name: 4. Install library dari requirement.txt
+        run: pip install -r requirement.txt
+
+      - name: 5. Jalankan skrip absen
+        env:
+          NPM: ${{ secrets.NPM}}
+          PASSWORD : ${{ secrets.PASSWORD }}
+        run: python -u absen.py
