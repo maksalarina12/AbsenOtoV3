@@ -14,23 +14,31 @@ PASSWORD = os.getenv("PASSWORD")
 
 # --- Konfigurasi Selenium ---
 # Path ke chromedriver yang ada di folder proyek Anda
-chromedriver_path = os.path.join(os.path.dirname(__file__), "chromedriver-linux64", "chromedriver")
-service = Service(executable_path=chromedriver_path)
+# chromedriver_path = os.path.join(os.path.dirname(__file__), "chromedriver-linux64", "chromedriver")
+# service = Service(executable_path=chromedriver_path)
+# # Path ke binary Google Chrome yang sebenarnya
+# chrome_binary_path = "/opt/google/chrome/google-chrome"
+# options = Options()
+# options.binary_location = chrome_binary_path
+# # options.add_argument("--headless") # Aktifkan untuk mode headless
+# options.add_argument("--no-sandbox")
+# options.add_argument("--disable-dev-shm-usage")
+# # Menambahkan user-agent untuk menghindari deteksi bot
+# options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+# # Inisialisasi driver dengan service dan options
+# driver = webdriver.Chrome(service=service, options=options)
 
-# Path ke binary Google Chrome yang sebenarnya
-chrome_binary_path = "/opt/google/chrome/google-chrome"
 
+# --- Konfigurasi Selenium ---
 options = Options()
-options.binary_location = chrome_binary_path
 # options.add_argument("--headless") # Aktifkan untuk mode headless
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
 # Menambahkan user-agent untuk menghindari deteksi bot
 options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+# Inisialisasi driver (Selenium akan mencari chromedriver secara otomatis)
+driver = webdriver.Chrome(options=options)
 
-
-# Inisialisasi driver dengan service dan options
-driver = webdriver.Chrome(service=service, options=options)
 
 try:
     now = datetime.datetime.now()
