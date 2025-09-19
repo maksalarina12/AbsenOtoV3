@@ -6,6 +6,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from dotenv import load_dotenv
 import os, time, datetime
+from zoneinfo import ZoneInfo
 
 # Load .env
 load_dotenv()
@@ -41,7 +42,7 @@ driver = webdriver.Chrome(options=options)
 
 
 try:
-    now = datetime.datetime.now()
+    now = datetime.datetime.now(ZoneInfo("Asia/Jakarta"))
     if now.weekday() >= 5 or not (8 <= now.hour < 21):
         print(" Di luar jam kuliah. Tidak mencoba absen.")
     else:
