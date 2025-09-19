@@ -74,7 +74,7 @@ try:
             konfirmasi_button = WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.CLASS_NAME, "confirm"))
             )
-            print("⏳ Menekan tombol konfirmasi...")
+            print(" Menekan tombol konfirmasi...")
             driver.execute_script("arguments[0].click();", konfirmasi_button)
 
             time.sleep(2)
