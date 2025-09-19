@@ -8,38 +8,17 @@ from dotenv import load_dotenv
 import os, time, datetime
 from zoneinfo import ZoneInfo
 
-# Load .env
 load_dotenv()
 USERNAME = os.getenv("NPM")
 PASSWORD = os.getenv("PASSWORD")
 
-# --- Konfigurasi Selenium ---
-# Path ke chromedriver yang ada di folder proyek Anda
-# chromedriver_path = os.path.join(os.path.dirname(__file__), "chromedriver-linux64", "chromedriver")
-# service = Service(executable_path=chromedriver_path)
-# # Path ke binary Google Chrome yang sebenarnya
-# chrome_binary_path = "/opt/google/chrome/google-chrome"
-# options = Options()
-# options.binary_location = chrome_binary_path
-# # options.add_argument("--headless") # Aktifkan untuk mode headless
-# options.add_argument("--no-sandbox")
-# options.add_argument("--disable-dev-shm-usage")
-# # Menambahkan user-agent untuk menghindari deteksi bot
-# options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
-# # Inisialisasi driver dengan service dan options
-# driver = webdriver.Chrome(service=service, options=options)
-
-
-# --- Konfigurasi Selenium ---
 options = Options()
-options.add_argument("--headless") # Aktifkan untuk mode headless
+options.add_argument("--headless") 
 options.add_argument("--no-sandbox")
 options.add_argument("--disable-dev-shm-usage")
-# Menambahkan user-agent untuk menghindari deteksi bot
-options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
-# Inisialisasi driver (Selenium akan mencari chromedriver secara otomatis)
-driver = webdriver.Chrome(options=options)
 
+options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36")
+driver = webdriver.Chrome(options=options)
 
 try:
     now = datetime.datetime.now(ZoneInfo("Asia/Jakarta"))
@@ -49,28 +28,24 @@ try:
         driver.get("https://simkuliah.usk.ac.id/")
         wait = WebDriverWait(driver, 10)
 
-        # Login
         wait.until(EC.presence_of_element_located((By.NAME, "username"))).send_keys(USERNAME)
         driver.find_element(By.NAME, "password").send_keys(PASSWORD)
         wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, 'button[type="submit"]'))).click()
 
-        time.sleep(2)  # Tunggu halaman berpindah
+        time.sleep(2)  
         print(" URL setelah login:", driver.current_url)
 
-        # Cek apakah login berhasil
         if "login" in driver.current_url.lower():
             print(" Gagal login. Cek username/password atau CAPTCHA.")
             driver.save_screenshot("login_failed.png")
             driver.quit()
             exit()
 
-        # Arahkan ke halaman absen
         driver.get("https://simkuliah.usk.ac.id/index.php/absensi")
         time.sleep(2)
 
         absen_button = None
         try:
-            # Cari tombol berdasarkan ID yang sudah ditemukan
             absen_button = WebDriverWait(driver, 5).until(
                 EC.element_to_be_clickable((By.ID, "konfirmasi-kehadiran"))
             )
@@ -84,8 +59,6 @@ try:
                     absen_button = btn
                     break
 
-# ... (semua bagian sebelumnya tidak berubah)
-
         if absen_button:
             print(" HTML tombol absen yang ditemukan:")
             print(absen_button.get_attribute("outerHTML"))
@@ -98,7 +71,6 @@ try:
             print(" Klik selesai. Screenshot disimpan ke 'after_click.png'.")
             print(" URL sekarang:", driver.current_url)
 
-            # Menunggu tombol konfirmasi
             konfirmasi_button = WebDriverWait(driver, 10).until(
                 EC.element_to_be_clickable((By.CLASS_NAME, "confirm"))
             )
@@ -113,12 +85,11 @@ try:
 
             print(" Harap cek manual apakah absensi benar-benar tercatat.")
 
-            # ✅ NOTIFIKASI hanya muncul jika absen dan konfirmasi sukses
             jam = now.strftime("%H:%M")
-            os.system(f'notify-send "✅ Absensi Berhasil" "Jam {jam}, cihuy bot telah melakukan absensi ya boss."')
+            os.system(f'notify-send " Absensi Berhasil" "Jam {jam}, cihuy bot telah melakukan absensi ya boss."')
 
         else:
-            print("ℹ️ Tidak ada tombol absen yang bisa diklik. Mungkin tidak ada jadwal.")
+            print("ℹ Tidak ada tombol absen yang bisa diklik. Mungkin tidak ada jadwal.")
 
 except Exception as e:
     print(" Terjadi error:", e)
