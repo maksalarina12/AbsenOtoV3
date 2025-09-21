@@ -1,8 +1,23 @@
-name : Absensi Otomatis
+name: Absensi Otomatis
 
 on:
   schedule:
-    - cron: '0 1-13 * * 1-5'
+    # Selasa
+    - cron: '5 1 * * 2'   # 08:05 WIB
+    - cron: '50 3 * * 2'  # 10:50 WIB
+
+    # Rabu
+    - cron: '5 1 * * 3'   # 08:05 WIB
+    - cron: '50 3 * * 3'  # 10:50 WIB
+    - cron: '5 7 * * 3'   # 14:05 WIB
+
+    # Kamis
+    - cron: '5 7 * * 4'   # 14:05 WIB
+    - cron: '0 10 * * 4'  # 17:00 WIB
+
+    # Jumat
+    - cron: '50 3 * * 5'  # 10:50 WIB
+
   workflow_dispatch:
 jobs:
   run-absen:
@@ -24,6 +39,6 @@ jobs:
 
       - name: 5. Jalankan skrip absen
         env:
-          NPM: ${{ secrets.NPM}}
-          PASSWORD : ${{ secrets.PASSWORD }}
+          NPM: ${{ secrets.NPM }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: python -u absen.py
