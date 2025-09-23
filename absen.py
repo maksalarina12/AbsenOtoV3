@@ -47,7 +47,7 @@ try:
         absen_button = None
         try:
             absen_button = WebDriverWait(driver, 5).until(
-                EC.element_to_be_clickable((By.ID, "konfirmasi-kehadiran"))
+                EC.element_to_be_clickable((By.ID, "konfirmasi-kehadiran-4832376"))
             )
         except:
             print(" ID 'konfirmasi-kehadiran' tidak ditemukan. Mencoba alternatif...")
