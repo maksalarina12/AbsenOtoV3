@@ -2,7 +2,7 @@
 
 > *"Karena mahasiswa yang baik adalah mahasiswa yang hadir, tapi mahasiswa yang genius adalah yang bikin bot untuk hadir sambil rebahan"* 
 
-Automated attendance system untuk mahasiswa Universitas Syiah Kuala yang sering lupa absen karena masih ngantuk atau lagi asik scroll TikTok. Dibuat oleh mahasiswa malas tapi pintar yang capek bangun pagi cuma buat pencet tombol absen.
+Automated attendance system untuk mahasiswa Universitas Syiah Kuala yang sering lupa absen karena masih ngantuk atau lagi asik scroll TikTok. Dibuat oleh mahasiswa malas yang capek bangun pagi cuma buat pencet tombol absen.
 
 ## Features
 
