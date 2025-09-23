@@ -47,10 +47,10 @@ try:
         absen_button = None
         try:
             absen_button = WebDriverWait(driver, 5).until(
-                EC.element_to_be_clickable((By.ID, "konfirmasi-kehadiran-4832376"))
+                EC.element_to_be_clickable((By.CLASS_NAME, "btn-success"))
             )
         except:
-            print(" ID 'konfirmasi-kehadiran' tidak ditemukan. Mencoba alternatif...")
+            print(" Tombol absen dengan class 'btn-success' tidak ditemukan. Mencoba alternatif...")
             buttons = driver.find_elements(By.TAG_NAME, "button")
             for btn in buttons:
                 text = btn.text.lower()
