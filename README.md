@@ -40,7 +40,6 @@ Automated attendance system untuk mahasiswa Universitas Syiah Kuala yang sering 
 
 ## Schedule
 
-Bot akan berjalan otomatis sesuai jadwal kuliah:
 - **Selasa**: 08:05 & 10:50 WIB
 - **Rabu**: 08:05, 10:50 & 14:05 WIB  
 - **Kamis**: 14:05 & 17:00 WIB
