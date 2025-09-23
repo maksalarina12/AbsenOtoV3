@@ -44,12 +44,10 @@ try:
         driver.get("https://simkuliah.usk.ac.id/index.php/absensi")
         time.sleep(2)
 
-        # Logika baru untuk menangani beberapa tombol absen
         absen_dilakukan = False
-        for i in range(2): # Loop untuk mencoba klik tombol absen maksimal 2 kali
+        for i in range(2): 
             try:
-                # Mencari tombol absen di setiap iterasi untuk menghindari elemen basi (stale element)
-                # Menggunakan CSS SELECTOR untuk kecocokan class yang lebih akurat
+                
                 absen_button = WebDriverWait(driver, 5).until(
                     EC.element_to_be_clickable((By.CLASS_NAME, "btn btn-success"))
                 )
@@ -57,13 +55,13 @@ try:
                 print(f"--- Memproses Tombol Absen (Percobaan #{i+1}) ---")
                 print("HTML tombol:", absen_button.get_attribute("outerHTML"))
                 
-                # Klik tombol absen
+                
                 driver.execute_script("arguments[0].click();", absen_button)
                 print("Tombol absen diklik.")
                 time.sleep(2)
                 driver.save_screenshot(f"after_absen_click_{i+1}.png")
 
-                # Klik tombol konfirmasi
+                
                 konfirmasi_button = WebDriverWait(driver, 10).until(
                     EC.element_to_be_clickable((By.CLASS_NAME, "confirm"))
                 )
@@ -74,10 +72,10 @@ try:
                 
                 print(f"--- Absen #{i+1} Selesai ---")
                 absen_dilakukan = True
-                time.sleep(3) # Jeda agar halaman stabil sebelum iterasi berikutnya
+                time.sleep(3) 
 
             except Exception:
-                # Jika tidak ada lagi tombol yang ditemukan, hentikan loop
+                
                 print(f"Tidak ada lagi tombol absen 'btn-success' yang ditemukan pada percobaan #{i+1}.")
                 break
         
