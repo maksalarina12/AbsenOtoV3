@@ -24,7 +24,7 @@ Automated attendance system untuk mahasiswa Universitas Syiah Kuala yang sering 
 
 1. **Fork/Clone repository ini**
    ```bash
-   git clone https://github.com/yourusername/absen-otomatis-usk.git
+   git clone https://github.com/NapoleonPro/absenv0.1.git
    ```
 
 2. **Setup GitHub Secrets**
@@ -61,14 +61,14 @@ Automated attendance system untuk mahasiswa Universitas Syiah Kuala yang sering 
 python -m venv mymyenv
 source mymyenv/bin/activate  # Linux/Mac
 # atau
-mymyenv\Scripts\activate     # Windows (kalau masih pake)
+mymyenv\Scripts\activate     # Windows (wtf is this os)
 
 # Install dependencies (semoga gak error)
 pip install -r requirement.txt
 
 # Setup environment variables (jangan lupa!)
 cp .env.example .env
-# Edit .env dengan credentials kamu (yang masih inget kan?)
+# Edit .env dengan credentials  (kocak si kalo lupa?)
 
 # Run manual test (doain jalan ya)
 python absen.py
@@ -112,7 +112,7 @@ MIT License - Bebas dipake, dimodifikasi, bahkan dijual (tapi kasih tau develope
 
 *"Code yang bagus adalah code yang bisa dipahami oleh kamu di masa depan ketika kamu udah lupa sama sekali kenapa kamu bikin ini dan lagi desperate nyari solusi yang sama"*
 
-Dibuat dengan ❤️, ☕, dan sedikit frustrasi oleh mahasiswa malas tapi pengen lulus tepat waktu tanpa ribet.
+Dibuat dengan ❤️(wth), ☕, dan sedikit frustrasi oleh mahasiswa malas tapi pengen lulus tepat waktu tanpa ribet.
 
 ---
 
