@@ -1,6 +1,6 @@
 # Absen Otomatis USK
 
-> *"Karena mahasiswa yang baik adalah mahasiswa yang hadir, tapi mahasiswa yang genius adalah yang bikin bot untuk hadir sambil rebahan"* 
+> *"Karena mahasiswa yang baik adalah mahasiswa yang hadir, tapi mahasiswa yang genius adalah yang bikin bot untuk hadir sambil rebahan (masi aja ada orang yang bayar untuk jasa absen online)"* 
 
 Automated attendance system untuk mahasiswa Universitas Syiah Kuala yang sering lupa absen karena masih ngantuk atau lagi asik scroll TikTok. Dibuat oleh mahasiswa malas yang capek bangun pagi cuma buat pencet tombol absen.
 
