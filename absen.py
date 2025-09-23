@@ -44,50 +44,47 @@ try:
         driver.get("https://simkuliah.usk.ac.id/index.php/absensi")
         time.sleep(2)
 
-        absen_button = None
-        try:
-            absen_button = WebDriverWait(driver, 5).until(
-                EC.element_to_be_clickable((By.CLASS_NAME, "btn-success"))
-            )
-        except:
-            print(" Tombol absen dengan class 'btn-success' tidak ditemukan. Mencoba alternatif...")
-            buttons = driver.find_elements(By.TAG_NAME, "button")
-            for btn in buttons:
-                text = btn.text.lower()
-                html = btn.get_attribute("innerHTML").lower()
-                if "absen" in text or "konfirmasi" in html:
-                    absen_button = btn
-                    break
+        # Logika baru untuk menangani beberapa tombol absen
+        absen_dilakukan = False
+        for i in range(2): # Loop untuk mencoba klik tombol absen maksimal 2 kali
+            try:
+                # Mencari tombol absen di setiap iterasi untuk menghindari elemen basi (stale element)
+                # Menggunakan CSS SELECTOR untuk kecocokan class yang lebih akurat
+                absen_button = WebDriverWait(driver, 5).until(
+                    EC.element_to_be_clickable((By.CLASS_NAME, "btn btn-success"))
+                )
+                
+                print(f"--- Memproses Tombol Absen (Percobaan #{i+1}) ---")
+                print("HTML tombol:", absen_button.get_attribute("outerHTML"))
+                
+                # Klik tombol absen
+                driver.execute_script("arguments[0].click();", absen_button)
+                print("Tombol absen diklik.")
+                time.sleep(2)
+                driver.save_screenshot(f"after_absen_click_{i+1}.png")
 
-        if absen_button:
-            print(" HTML tombol absen yang ditemukan:")
-            print(absen_button.get_attribute("outerHTML"))
-            print(" Menekan tombol absen...")
-            driver.execute_script("arguments[0].click();", absen_button)
+                # Klik tombol konfirmasi
+                konfirmasi_button = WebDriverWait(driver, 10).until(
+                    EC.element_to_be_clickable((By.CLASS_NAME, "confirm"))
+                )
+                driver.execute_script("arguments[0].click();", konfirmasi_button)
+                print("Tombol konfirmasi diklik.")
+                time.sleep(2)
+                driver.save_screenshot(f"after_konfirmasi_click_{i+1}.png")
+                
+                print(f"--- Absen #{i+1} Selesai ---")
+                absen_dilakukan = True
+                time.sleep(3) # Jeda agar halaman stabil sebelum iterasi berikutnya
 
-            time.sleep(2)
-
-            driver.save_screenshot("after_click.png")
-            print(" Klik selesai. Screenshot disimpan ke 'after_click.png'.")
-            print(" URL sekarang:", driver.current_url)
-
-            konfirmasi_button = WebDriverWait(driver, 10).until(
-                EC.element_to_be_clickable((By.CLASS_NAME, "confirm"))
-            )
-            print(" Menekan tombol konfirmasi...")
-            driver.execute_script("arguments[0].click();", konfirmasi_button)
-
-            time.sleep(2)
-
-            driver.save_screenshot("after_konfirmasi_click.png")
-            print(" Klik konfirmasi selesai. Screenshot disimpan ke 'after_konfirmasi_click.png'.")
-            print(" URL sekarang:", driver.current_url)
-
-            print(" Harap cek manual apakah absensi benar-benar tercatat.")
-
+            except Exception:
+                # Jika tidak ada lagi tombol yang ditemukan, hentikan loop
+                print(f"Tidak ada lagi tombol absen 'btn-success' yang ditemukan pada percobaan #{i+1}.")
+                break
+        
+        if absen_dilakukan:
+            print("Proses absensi selesai. Harap cek manual apakah absensi benar-benar tercatat.")
             jam = now.strftime("%H:%M")
             os.system(f'notify-send " Absensi Berhasil" "Jam {jam}, cihuy bot telah melakukan absensi ya boss."')
-
         else:
             print("ℹ Tidak ada tombol absen yang bisa diklik. Mungkin tidak ada jadwal.")
 
