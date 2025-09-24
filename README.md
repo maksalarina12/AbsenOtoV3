@@ -117,7 +117,7 @@ MIT License - Bebas dipake, dimodifikasi, bahkan dijual (tapi kasih tau develope
 
 *"Code yang bagus adalah code yang bisa dipahami oleh kamu di masa depan ketika kamu udah lupa sama sekali kenapa kamu bikin ini dan lagi desperate nyari solusi yang sama"*
 
-Dibuat dengan ❤️(wth), ☕, dan sedikit frustrasi oleh mahasiswa malas tapi pengen lulus tepat waktu tanpa ribet.
+Dibuat dengan Mie Ayam❤️(wth), ☕, dan sedikit frustrasi oleh mahasiswa malas tapi pengen lulus tepat waktu tanpa ribet.
 
 ---
 
