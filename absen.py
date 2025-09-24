@@ -25,7 +25,7 @@ try:
     if now.weekday() >= 5 or not (8 <= now.hour < 21):
         print(" Di luar jam kuliah. Tidak mencoba absen.")
     else:
-        driver.get("https://simkuliah.usk.ac.id/index.php/login")
+        driver.get("https://simkuliah.usk.ac.id/")
         wait = WebDriverWait(driver, 10)
 
         wait.until(EC.presence_of_element_located((By.NAME, "username"))).send_keys(USERNAME)
@@ -49,7 +49,7 @@ try:
             try:
                 
                 absen_button = WebDriverWait(driver, 5).until(
-                    EC.element_to_be_clickable((By.CLASS_NAME, "btn btn-success"))
+                    EC.element_to_be_clickable((By.CSS_SELECTOR, ".btn.btn-success"))
                 )
                 
                 print(f"--- Memproses Tombol Absen (Percobaan #{i+1}) ---")
@@ -76,7 +76,7 @@ try:
 
             except Exception:
                 
-                print(f"Tidak ada lagi tombol absen 'btn-success' yang ditemukan pada percobaan #{i+1}.")
+                print(f"Tidak ada lagi tombol absen yang ditemukan pada percobaan #{i+1}.")
                 break
         
         if absen_dilakukan:
