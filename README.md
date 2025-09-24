@@ -35,8 +35,8 @@ Automated attendance system untuk mahasiswa Universitas Syiah Kuala yang seren l
      * `PASSWORD`: Password SIMKULIAH
 3. **Setup Push Notification (Optional)**
    * Download **ntfy app** di HP (lebih recommended) atau akses ntfy.sh di web
-   * Ganti topic di file `absen.py` dari `akbar-permana-absen-sukses` ke topic kamu sendiri
-   * Topic bebas asal unik, contoh: `nama-kamu-absen` atau `npm-kamu-bot`
+   * Ganti topic di file `absen.py` dari `akbar-permana-absen-sukses` ke topic kalian sendiri
+   * Topic bebas asal unik, contoh: `nama-kalian-absen` atau `npm-kalian-bot`
    * Subscribe ke topic yang sama di ntfy app
 4. **Activate Workflow**
    * Buka tab Actions di repository
@@ -64,14 +64,14 @@ Bot akan berjalan otomatis sesuai jadwal kuliah:
 
 ## Setup Notifikasi
 
-Bot udah dilengkapi push notification via ntfy biar kamu tau status absen tanpa perlu buka GitHub Actions.
+Bot udah dilengkapi push notification via ntfy biar kalian tau status absen tanpa perlu buka GitHub Actions.
 
 ### Cara Setup:
 
 1. **Download ntfy app** di HP (Android/iOS) atau buka https://ntfy.sh di browser
 2. **Ganti topic** di file `absen.py`:
    ```python
-   # Cari baris ini dan ganti topic-nya:ntfy.sh/akbar-permana-absen-sukses    # ganti jadi topic kamuntfy.sh/akbar-permana-absen-info      # ganti jadi topic kamu  ntfy.sh/akbar-permana-absen-error     # ganti jadi topic kamu
+   # Cari baris ini dan ganti topic-nya:ntfy.sh/akbar-permana-absen-sukses    # ganti jadi topic kalianntfy.sh/akbar-permana-absen-info      # ganti jadi topic kalian  ntfy.sh/akbar-permana-absen-error     # ganti jadi topic kalian
    ```
 3. **Subscribe** ke topic yang sama di ntfy app
 4. **Done!** Sekarang bakal dapet notif kalau:
@@ -120,9 +120,9 @@ python absen.py
 * Tool ini dibuat untuk **educational purposes** dan membantu mahasiswa pelupa kayak developer
 * Gunakan dengan bijak dan tetap ikut kuliah beneran (jangan cuma ngandalin bot doang ya kocak)
 * Developer tidak bertanggung jawab jika:
-  * Dosen jadi curiga kenapa kamu tiba-tiba rajin absen tepat waktu
+  * Dosen jadi curiga kenapa kalian tiba-tiba rajin absen tepat waktu
   * Sistem USK upgrade security terus bot-nya jadi gabisa login
-  * Kamu ketagihan bikin automation buat hal lain sampe lupa ngerjain tugas
+  * kalian ketagihan bikin automation buat hal lain sampe lupa ngerjain tugas
   * Bot-nya lagi bad mood dan gamau jalan (namanya juga teknologi)
 
 ## Contributing
@@ -140,7 +140,7 @@ MIT License - Bebas dipake, dimodifikasi, bahkan dijual (tapi kasih tau develope
 
 ## Developer Notes
 
-*"Code yang bagus adalah code yang bisa dipahami oleh kamu di masa depan ketika kamu udah lupa sama sekali kenapa kamu bikin ini dan lagi desperate nyari solusi yang sama"*
+*"Code yang bagus adalah code yang bisa kita pahami di masa depan ketika kita sendiri udah lupa sama sekali kenapa kalian bikin ini dan lagi desperate nyari solusi yang sama"*
 
 Dibuat dengan seporsi Mie Ayam❤️ (dehel), ☕, dan sedikit frustrasi oleh mahasiswa malas tapi pintar yang pengen lulus tepat waktu tanpa ribet.
 
