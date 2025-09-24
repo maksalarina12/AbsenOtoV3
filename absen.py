@@ -81,16 +81,17 @@ try:
         
         if absen_dilakukan:
             print("Proses absensi selesai. Harap cek manual apakah absensi benar-benar tercatat.")
-            jam = now.strftime("%H:%M")
-            os.system(f'notify-send " Absensi Berhasil" "Jam {jam}, cihuy bot telah melakukan absensi ya boss."')
+            os.system('curl -H "Title: ✅ Absen Berhasil" -d "Cihuy, bot telah melakukan absensi." ntfy.sh/akbar-permana-absen-sukses')
         else:
             print("ℹ Tidak ada tombol absen yang bisa diklik. Mungkin tidak ada jadwal.")
+            os.system('curl -H "Title: ℹ️ Tidak Ada Jadwal" -d "Bot berjalan, tapi tidak ada jadwal absen yang tersedia." ntfy.sh/akbar-permana-absen-info')
 
 except Exception as e:
     print(" Terjadi error:", e)
     driver.save_screenshot("error.png")
     print(" Screenshot error disimpan sebagai 'error.png'")
     print(" Potongan halaman:\n", driver.page_source[:1000])
+    os.system('curl -H "Title: ❌ Absen ERROR" -d "Terjadi error saat menjalankan bot. Cek log di GitHub Actions." ntfy.sh/akbar-permana-absen-error')
 
 finally:
     driver.quit()
