@@ -25,7 +25,7 @@ try:
     if now.weekday() >= 5 or not (8 <= now.hour < 21):
         print(" Di luar jam kuliah. Tidak mencoba absen.")
     else:
-        driver.get("https://simkuliah.usk.ac.id/")
+        driver.get("https://simkuliah.usk.ac.id/index.php/login")
         wait = WebDriverWait(driver, 10)
 
         wait.until(EC.presence_of_element_located((By.NAME, "username"))).send_keys(USERNAME)
