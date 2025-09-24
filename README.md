@@ -25,15 +25,9 @@ Automated attendance system untuk mahasiswa Universitas Syiah Kuala yang seren l
 ### Setup Instructions
 
 1. **Fork/Clone repository ini**
-
-## Local Development (Optional)
-
-*Cuma buat yang mau debugging atau development, mayoritas user gak perlu ini.*
-
-```bash
-git clone https://github.com/NapoleonPro/absenv0.1.git
-```
-
+   ```bash
+   git clone https://github.com/NapoleonPro/absenv0.1.git
+   ```
 2. **Setup GitHub Secrets**
    * Buka Settings > Secrets and variables > Actions (kalau lupa dimana, googling aja)
    * Tambahkan secrets berikut:
@@ -53,10 +47,10 @@ git clone https://github.com/NapoleonPro/absenv0.1.git
 
 Bot akan berjalan otomatis sesuai jadwal kuliah:
 
-* **Selasa**: 08:05 & 10:50 WIB
-* **Rabu**: 08:05, 10:50 & 14:05 WIB
-* **Kamis**: 14:05 & 17:00 WIB
-* **Jumat**: 10:50 WIB
+* ​**Selasa**​: 08:05 & 10:50 WIB
+* ​**Rabu**​: 08:05, 10:50 & 14:05 WIB
+* ​**Kamis**​: 14:05 & 17:00 WIB
+* ​**Jumat**​: 10:50 WIB
 
 *Schedule jam kuliah kalian dapat disesuaikan di file `.github/workflows/absen.yml`(schedule sekarang punya gwehch so jangan diutak-atik nanti rusak)*
 
@@ -72,7 +66,7 @@ Bot akan berjalan otomatis sesuai jadwal kuliah:
 
 Bot udah dilengkapi push notification via ntfy biar kamu tau status absen tanpa perlu buka GitHub Actions.
 
-### **Cara Setup:**
+### Cara Setup:
 
 1. **Download ntfy app** di HP (Android/iOS) atau buka https://ntfy.sh di browser
 2. **Ganti topic** di file `absen.py`:
@@ -87,6 +81,10 @@ Bot udah dilengkapi push notification via ntfy biar kamu tau status absen tanpa 
 
 **Recommended:** Pake HP karena notif langsung masuk, kalau web harus dibuka terus atau Install WPAnya.
 
+## Local Development (Optional)
+
+*Cuma buat yang mau debugging atau development, mayoritas user gak perlu ini.*
+
 ```bash
 # Setup virtual environment (buat yang peduli sama dependency hell)
 python -m venv mymyenv
@@ -99,7 +97,7 @@ pip install -r requirement.txt
 
 # Setup environment variables (jangan lupa!)
 cp .env.example .env
-# Edit .env dengan credentials  (kocak si kalo lupa?)
+# Edit .env dengan credentials  (kocak si kalo lupa)
 
 # Run manual test (doain jalan ya)
 python absen.py
@@ -149,3 +147,4 @@ Dibuat dengan seporsi Mie Ayam❤️ (dehel), ☕, dan sedikit frustrasi oleh ma
 ---
 
 **Kalau terbantu, kasi star plis karena star bikin developer merasa dihargai (dan semangat maintain code-nya , cape jir).**
+
