@@ -1,6 +1,6 @@
 # Absen Otomatis USK
 
-> *"Karena mahasiswa yang baik adalah mahasiswa yang hadir, tapi mahasiswa yang genius adalah yang bikin bot untuk hadir sambil rebahan (masi aja ada orang yang bayar untuk jasa absen online)"* 
+> *"Karena mahasiswa yang baik adalah mahasiswa yang hadir, tapi mahasiswa yang genius adalah yang bikin bot untuk hadir sambil rebahan (masi aja ada orang yang bayar untuk jasa absen online)"*
 
 Automated attendance system untuk mahasiswa Universitas Syiah Kuala yang sering lupa absen karena masih ngantuk atau lagi asik scroll TikTok. Dibuat oleh mahasiswa malas yang capek bangun pagi cuma buat pencet tombol absen.
 
@@ -15,6 +15,7 @@ Automated attendance system untuk mahasiswa Universitas Syiah Kuala yang sering 
 ## Quick Start
 
 ### Prerequisites
+
 - Akun GitHub (yang masih inget passwordnya)
 - Credentials SIMKULIAH yang belum expired
 - Doa agar WiFi kampus tidak lemot
@@ -23,17 +24,18 @@ Automated attendance system untuk mahasiswa Universitas Syiah Kuala yang sering 
 ### Setup Instructions
 
 1. **Fork/Clone repository ini**
+
    ```bash
    git clone https://github.com/NapoleonPro/absenv0.1.git
    ```
-
 2. **Setup GitHub Secrets**
+
    - Buka Settings > Secrets and variables > Actions (kalau lupa dimana, googling aja)
    - Tambahkan secrets berikut:
      - `NPM`: Nomor Pokok Mahasiswa kamu (yang sering lupa pas ditanya dosen)
      - `PASSWORD`: Password SIMKULIAH (jangan yang sama dengan password semua akun lain ya, please!)
-
 3. **Activate Workflow**
+
    - Buka tab Actions di repository
    - Enable workflows (tinggal klik doang kok, gampang)
    - Duduk santai sambil ngopi dan berharap bot nya gak ngambek
@@ -41,11 +43,11 @@ Automated attendance system untuk mahasiswa Universitas Syiah Kuala yang sering 
 ## Schedule
 
 - **Selasa**: 08:05 & 10:50 WIB
-- **Rabu**: 08:05, 10:50 & 14:05 WIB  
+- **Rabu**: 08:05, 10:50 & 14:05 WIB
 - **Kamis**: 14:05 & 17:00 WIB
 - **Jumat**: 10:50 WIB
 
-*Schedule dapat disesuaikan di file `.github/workflows/absen.yml` (kalau kamu tau cara edit CRON - kalau ngga tau, jangan diutak-atik nanti rusak)*
+*Schedule jam kuliah kalian dapat disesuaikan di file `.github/workflows/absen.yml`(schedule sekarang punya gwehch so jangan diutak-atik nanti rusak)*
 
 ## Tech Stack
 
@@ -77,11 +79,13 @@ python absen.py
 ## Roadmap
 
 ### Near Future (ketika developer udah gak malas lagi)
+
 - **Multi-account support** - Tinggal nambahin loop doang sih, tapi males mikir error handlingnya
 - **Custom schedule per user** - Soalnya jadwal setiap mahasiswa beda-beda kayak kehidupan
 - **Telegram/Discord notifications** - Biar tau kalau bot berhasil atau lagi mogok
 
 ### Far Future (ketika developer dapet pencerahan atau kena deadline)
+
 - **GUI Desktop Application** - Buat yang alergi terminal hitam-hitam
 - **Web dashboard** - Monitoring absensi dengan tampilan kece
 - **AI prediction** - Prediksi kapan sistem USK bakal down lagi (spoiler: sering banget)
@@ -99,6 +103,7 @@ python absen.py
 ## Contributing
 
 Pull requests are welcome! Apalagi kalau ada yang mau:
+
 - Fix bugs yang developer udah tau tapi males benerin
 - Nambahin fitur keren (yang developer kepikiran tapi lupa dicatet)
 - Improve documentation (ini paling dibutuhin, soalnya developer jelek nulis dokumentasi)
