@@ -1,4 +1,4 @@
-# Absen Otomatis USK
+R# Absen Otomatis USK
 
 > *"Karena mahasiswa yang baik adalah mahasiswa yang hadir, tapi mahasiswa yang genius adalah yang bikin bot untuk hadir sambil rebahan (masi aja ada orang yang bayar untuk jasa absen online)"*
 
@@ -18,7 +18,7 @@ Automated attendance system untuk mahasiswa Universitas Syiah Kuala yang seren l
 ### Prerequisites
 
 * Akun GitHub (yang masih inget passwordnya)
-* Credentials SIMKULIAH yang belum expired
+* NPM dan PASSWORD yang kalian pakai untuk login simkuliah
 * Doa agar WiFi kampus tidak lemot
 * Niat untuk tidak bolos kuliah fisik (ini yang paling susah)
 
@@ -35,8 +35,8 @@ git clone https://github.com/NapoleonPro/absenv0.1.git
 2. **Setup GitHub Secrets**
    * Buka Settings > Secrets and variables > Actions (kalau lupa dimana, googling aja)
    * Tambahkan secrets berikut:
-     * `NPM`: Nomor Pokok Mahasiswa kamu (yang sering lupa pas ditanya dosen)
-     * `PASSWORD`: Password SIMKULIAH (jangan yang sama dengan password semua akun lain ya, please!)
+     * `NPM`: Nomor Pokok Mahasiswa kalian (yang sering lupa pas ditanya dosen)
+     * `PASSWORD`: Password SIMKULIAH
 3. **Setup Push Notification (Optional)**
    * Download **ntfy app** di HP (lebih recommended) atau akses ntfy.sh di web
    * Ganti topic di file `absen.py` dari `akbar-permana-absen-sukses` ke topic kamu sendiri
@@ -51,10 +51,10 @@ git clone https://github.com/NapoleonPro/absenv0.1.git
 
 Bot akan berjalan otomatis sesuai jadwal kuliah:
 
-* ​**Selasa**​: 08:05 & 10:50 WIB
-* ​**Rabu**​: 08:05, 10:50 & 14:05 WIB
-* ​**Kamis**​: 14:05 & 17:00 WIB
-* ​**Jumat**​: 10:50 WIB
+* **Selasa**: 08:05 & 10:50 WIB
+* **Rabu**: 08:05, 10:50 & 14:05 WIB
+* **Kamis**: 14:05 & 17:00 WIB
+* **Jumat**: 10:50 WIB
 
 *Schedule jam kuliah kalian dapat disesuaikan di file `.github/workflows/absen.yml`(schedule sekarang punya gwehch so jangan diutak-atik nanti rusak)*
 
@@ -132,7 +132,7 @@ Pull requests are welcome! Apalagi kalau ada yang mau:
 * Fix bugs yang developer udah tau tapi males benerin
 * Nambahin fitur keren (yang developer kepikiran tapi lupa dicatet)
 * Improve documentation (ini paling dibutuhin, soalnya developer jelek nulis dokumentasi)
-* Kasih Mie Ayam ❤️(wth) atau doa biar developer semangat coding lagi
+* Kasih Mie Ayam ❤️atau doa biar developer semangat coding lagi
 
 ## License
 
