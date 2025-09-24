@@ -1,4 +1,4 @@
-R# Absen Otomatis USK
+# Absen Otomatis USK
 
 > *"Karena mahasiswa yang baik adalah mahasiswa yang hadir, tapi mahasiswa yang genius adalah yang bikin bot untuk hadir sambil rebahan (masi aja ada orang yang bayar untuk jasa absen online)"*
 
@@ -24,7 +24,7 @@ Automated attendance system untuk mahasiswa Universitas Syiah Kuala yang seren l
 
 ### Setup Instructions
 
-1. **Fork/Clone repository ini**## Local Development (Optional)
+1. **Fork/Clone repository ini** ## Local Development (Optional)
 
 *Cuma buat yang mau debugging atau development, mayoritas user gak perlu ini.*
 
@@ -147,4 +147,3 @@ Dibuat dengan seporsi Mie Ayam❤️ (dehel), ☕, dan sedikit frustrasi oleh ma
 ---
 
 **Kalau terbantu, kasi star plis karena star bikin developer merasa dihargai (dan semangat maintain code-nya , cape jir).**
-
