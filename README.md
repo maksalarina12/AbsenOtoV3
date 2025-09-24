@@ -33,7 +33,7 @@ Automated attendance system untuk mahasiswa Universitas Syiah Kuala yang sering 
    - Buka Settings > Secrets and variables > Actions (kalau lupa dimana, googling aja)
    - Tambahkan secrets berikut:
      - `NPM`: Nomor Pokok Mahasiswa kamu (yang sering lupa pas ditanya dosen)
-     - `PASSWORD`: Password SIMKULIAH (jangan yang sama dengan password semua akun lain ya, please!)
+     - `PASSWORD`: Password SIMKULIAH
 3. **Activate Workflow**
 
    - Buka tab Actions di repository
