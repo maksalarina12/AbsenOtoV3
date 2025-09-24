@@ -24,7 +24,9 @@ Automated attendance system untuk mahasiswa Universitas Syiah Kuala yang seren l
 
 ### Setup Instructions
 
-1. **Fork/Clone repository ini** ## Local Development (Optional)
+1. **Fork/Clone repository ini**
+
+## Local Development (Optional)
 
 *Cuma buat yang mau debugging atau development, mayoritas user gak perlu ini.*
 
