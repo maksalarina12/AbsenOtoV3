@@ -84,14 +84,14 @@ try:
             os.system('curl -H "Title: Absen Berhasil" -d "Cihuyy, bot telah melakukan absensi." ntfy.sh/akbar-permana-absen-sukses')
         else:
             print("ℹ Tidak ada tombol absen yang bisa diklik. Mungkin tidak ada jadwal.")
-            os.system('curl -H "Title: Tidak Ada Jadwal" -d "Bot berjalan, tapi tidak ada jadwal absen yang tersedia." ntfy.sh/akbar-permana-absen-info')
+            os.system('curl -H "Title: Tidak Ada Jadwal" -d "Bot berjalan, tapi tidak ada jadwal absen yang tersedia." ntfy.sh/lome_absen_gagal_yo')
 
 except Exception as e:
     print(" Terjadi error:", e)
     driver.save_screenshot("error.png")
     print(" Screenshot error disimpan sebagai 'error.png'")
     print(" Potongan halaman:\n", driver.page_source[:1000])
-    os.system('curl -H "Title:  Absen ERROR" -d "Terjadi error saat menjalankan bot. Cek log di GitHub Actions." ntfy.sh/akbar-permana-absen-error')
+    os.system('curl -H "Title:  Absen ERROR" -d "Terjadi error saat menjalankan bot. Cek log di GitHub Actions." ntfy.sh/lome_absen_error_yo')
 
 finally:
     driver.quit()
