@@ -81,7 +81,7 @@ try:
         
         if absen_dilakukan:
             print("Proses absensi selesai. Harap cek manual apakah absensi benar-benar tercatat.")
-            os.system('curl -H "Title: Absen Berhasil" -d "Cihuyy, bot telah melakukan absensi." ntfy.sh/akbar-permana-absen-sukses')
+            os.system('curl -H "Title: Absen Berhasil" -d "Cihuyy, bot telah melakukan absensi." ntfy.sh/lome_absen_done_yo')
         else:
             print("ℹ Tidak ada tombol absen yang bisa diklik. Mungkin tidak ada jadwal.")
             os.system('curl -H "Title: Tidak Ada Jadwal" -d "Bot berjalan, tapi tidak ada jadwal absen yang tersedia." ntfy.sh/lome_absen_gagal_yo')
