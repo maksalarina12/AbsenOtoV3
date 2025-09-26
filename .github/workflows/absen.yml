@@ -2,21 +2,27 @@ name: Absensi Otomatis
 
 on:
   schedule:
+    # Senin
+    - cron: '0 7 * * 1'   # 14:00 WIB - K3 DAN ETIKA PROFESI
+
     # Selasa
-    - cron: '5 1 * * 2'   # 08:05 WIB
-    - cron: '50 3 * * 2'  # 10:50 WIB
+    - cron: '45 3 * * 2'  # 10:45 WIB - KECERDASAN ARTIFISIAL
+    - cron: '0 7 * * 2'   # 14:00 WIB - INTELLIGENT TRANSPORTATION SYSTEM
+    - cron: '35 9 * * 2'  # 16:35 WIB - TATA TULIS ILMIAH
 
     # Rabu
-    - cron: '5 1 * * 3'   # 08:05 WIB
-    - cron: '50 3 * * 3'  # 10:50 WIB
-    - cron: '5 7 * * 3'   # 14:05 WIB
+    - cron: '0 1 * * 3'   # 08:00 WIB - KEAMANAN INFORMASI
+    - cron: '45 3 * * 3'  # 10:45 WIB - SISTEM TERDISTRIBUSI
+    - cron: '0 7 * * 3'   # 14:00 WIB - PENGOLAHAN SINYAL MULTIMEDIA
 
     # Kamis
-    - cron: '5 7 * * 4'   # 14:05 WIB
-    - cron: '0 10 * * 4'  # 17:00 WIB
+    - cron: '0 1 * * 4'   # 08:00 WIB - PRAKTIKUM KEAMANAN INFORMASI
+    - cron: '45 3 * * 4'  # 10:45 WIB - KEAMANAN JARINGAN
+    - cron: '0 7 * * 4'   # 14:00 WIB - SISTEM EMBEDDED
+    - cron: '55 7 * * 4'  # 14:55 WIB - PRAKTIKUM SISTEM EMBEDDED
 
     # Jumat
-    - cron: '50 3 * * 5'  # 10:50 WIB
+    - cron: '0 1 * * 5'   # 08:00 WIB - PRAKTIKUM SISTEM TERDISTRIBUSI
 
   workflow_dispatch:
 jobs:
